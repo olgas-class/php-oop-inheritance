@@ -4,6 +4,7 @@ require_once __DIR__ . "/membership.php";
 
 class PremiumUser extends User {
   private Membership $membership;
+  public static string $title = "Premium";
 
   public function __construct(string $_name, string $_lastname, Membership $_membership) {
     // Richiamare il costruttore della classe padre
@@ -36,9 +37,8 @@ class PremiumUser extends User {
 
   /**
    * Get the value of membership
-   */ 
-  public function getMembership()
-  {
+   */
+  public function getMembership() {
     return $this->membership;
   }
 }

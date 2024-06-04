@@ -1,10 +1,14 @@
 <?php
+require_once __DIR__ . "/../traits/weightable.php";
 
 class User {
+  use Weightable;
+
   private string $name;
   private string $lastname;
   private int $age;
   protected int $discount;
+  public static string $country = "Italy";
 
   public function __construct(string $_name, string $_lastname) {
     $this->name = $_name;
@@ -70,5 +74,9 @@ class User {
 
   public function greeting() {
     return "Ciao, sono user normale e mi chiamo " . $this->getFullName();
+  }
+
+  public static function generatePassword() {
+    return "abc" . rand(1000, 10000);
   }
 }
